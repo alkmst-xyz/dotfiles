@@ -77,6 +77,11 @@ error_symbol = "[✗](bold red)"
 symbol = "△ "
 format = "[$symbol($version)]($style) "
 
+[cmd_duration]
+disabled = false 
+min_time = 200
+format = "took [$duration]($style) "
+
 [directory]
 truncation_length = 3 
 
