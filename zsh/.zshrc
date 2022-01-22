@@ -39,5 +39,8 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Starship prompt
 eval "$(starship init zsh)"
 
+# fetch
+pfetch
+
 # wttr
 # curl --max-time 0.20 'wttr.in/Rosenheim?format=%l:+%c+%t+(%f)+%h+%w+%m+%D+%z+%d\n'

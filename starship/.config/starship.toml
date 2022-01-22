@@ -83,7 +83,9 @@ min_time = 200
 format = "took [$duration]($style) "
 
 [directory]
+truncate_to_repo = false
 truncation_length = 3 
+repo_root_style = "bold green" 
 
 [fill]
 symbol = " "
