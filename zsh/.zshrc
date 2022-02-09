@@ -40,7 +40,7 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
 
 # fetch
-pfetch
+# pfetch
 
 # wttr
 # curl --max-time 0.20 'wttr.in/Rosenheim?format=%l:+%c+%t+(%f)+%h+%w+%m+%D+%z+%d\n'

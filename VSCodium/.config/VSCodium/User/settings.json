@@ -1,12 +1,12 @@
 {
-    "workbench.colorTheme": "Dracula Soft",
     "editor.formatOnSave": true,
     "telemetry.telemetryLevel": "off",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs":"active",
+    "editor.guides.bracketPairs": "active",
+    "editor.rulers": [79],
     "terminal.integrated.fontSize": 16,
     "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
@@ -23,4 +23,5 @@
         "*.pdf": "pdf.preview"
     },
     "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Dracula",
 }
