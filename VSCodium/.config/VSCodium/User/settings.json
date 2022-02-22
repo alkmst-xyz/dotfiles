@@ -1,27 +1,27 @@
 {
-    "editor.formatOnSave": true,
-    "telemetry.telemetryLevel": "off",
-    "editor.fontSize": 16,
-    "editor.fontLigatures": true,
-    "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": "active",
-    "editor.rulers": [79],
-    "terminal.integrated.fontSize": 16,
-    "python.formatting.provider": "black",
-    "python.linting.flake8Enabled": true,
-    "explorer.confirmDelete": false,
-    "window.menuBarVisibility": "toggle",
-    "explorer.confirmDragAndDrop": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "prettier.configPath": ".vscode/.prettierrc",
-    "clangd.path": "/home/joseph/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/13.0.0/clangd_13.0.0/bin/clangd",
-    "workbench.editorAssociations": {
-        "*.pdf": "pdf.preview"
-    },
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Dracula",
+  "editor.formatOnSave": true,
+  "telemetry.telemetryLevel": "off",
+  "editor.fontSize": 16,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.rulers": [79],
+  "terminal.integrated.fontSize": 16,
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "explorer.confirmDelete": false,
+  "window.menuBarVisibility": "toggle",
+  "explorer.confirmDragAndDrop": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.configPath": ".vscode/.prettierrc",
+  "clangd.path": "/home/joseph/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/13.0.0/clangd_13.0.0/bin/clangd",
+  "workbench.editorAssociations": {
+    "*.pdf": "pdf.preview"
+  },
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Dracula",
 }

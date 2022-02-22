@@ -29,7 +29,7 @@ export NVM_DIR="$HOME/.nvm"
 # Aliases
 alias ll="ls -la"
 alias vim=nvim
-alias code=codium
+# alias code=codium
 
 # Plugins
 source ~/.config/zsh/key-bindings.zsh
