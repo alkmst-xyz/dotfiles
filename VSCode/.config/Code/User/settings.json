@@ -1,0 +1,19 @@
+{
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Dracula Soft",
+  "window.menuBarVisibility": "toggle",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.formatOnSave": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.rulers": [
+    79
+  ],
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.fontSize": 16,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+}
