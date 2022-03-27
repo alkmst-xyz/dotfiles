@@ -9,6 +9,7 @@ zstyle :compinstall filename '/home/joseph/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -32,8 +33,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # gradle
 export PATH=$PATH:/opt/gradle/gradle-7.4.1/bin
-# End of PATH
 
+# End of PATH
 
 # Aliases
 alias ll="ls -la"
