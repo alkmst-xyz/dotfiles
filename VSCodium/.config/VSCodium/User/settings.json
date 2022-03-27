@@ -23,5 +23,6 @@
     "*.pdf": "pdf.preview"
   },
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Dracula"
+  "workbench.colorTheme": "Dracula",
+  "window.zoomLevel": 1
 }
