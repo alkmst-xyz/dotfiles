@@ -1,28 +1,29 @@
 {
-  "editor.formatOnSave": true,
-  "telemetry.telemetryLevel": "off",
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Dracula",
+  "workbench.editorAssociations": {
+    "*.pdf": "pdf.preview"
+  },
+  "window.menuBarVisibility": "toggle",
   "editor.fontSize": 16,
+  "editor.formatOnSave": true,
   "editor.fontLigatures": true,
   "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "editor.rulers": [79],
+  "editor.rulers": [
+    79
+  ],
+  "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 16,
-  "python.formatting.provider": "black",
-  "python.linting.flake8Enabled": true,
   "explorer.confirmDelete": false,
-  "window.menuBarVisibility": "toggle",
   "explorer.confirmDragAndDrop": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "prettier.configPath": ".vscode/.prettierrc",
   "clangd.path": "/home/joseph/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/13.0.0/clangd_13.0.0/bin/clangd",
-  "workbench.editorAssociations": {
-    "*.pdf": "pdf.preview"
-  },
-  "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Dracula",
-  "window.zoomLevel": 1
 }
