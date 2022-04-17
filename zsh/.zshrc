@@ -39,12 +39,14 @@ export PATH=$PATH:/opt/gradle/gradle-7.4.1/bin
 # Aliases
 alias ll="ls -la"
 alias vim=nvim
+alias docker=podman
 # alias code=codium
 
 # Plugins
 source ~/.config/zsh/key-bindings.zsh
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source ~/.config/zsh/plugins/k/k.plugin.zsh
 
 # Starship prompt
 eval "$(starship init zsh)"
