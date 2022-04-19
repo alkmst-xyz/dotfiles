@@ -50,7 +50,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim"
+  -- use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -59,13 +59,18 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
 
+  -- New
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true }
+  }
+
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "folke/tokyonight.nvim"
-  use 'Mofiqul/dracula.nvim'
-  use "lunarvim/darkplus.nvim"
+  -- use 'Mofiqul/dracula.nvim'
 
   -- cmp plugins
+  --  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -74,10 +79,10 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "L3MON4D3/LuaSnip" -- snippet engine
+  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-  -- LSP
+  -- LSP 
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
@@ -102,3 +107,4 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
+

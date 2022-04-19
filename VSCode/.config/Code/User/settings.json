@@ -21,6 +21,6 @@
   "clangd.arguments": ["--compile-commands-dir=build/debug"],
   "vim.useCtrlKeys": false,
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
