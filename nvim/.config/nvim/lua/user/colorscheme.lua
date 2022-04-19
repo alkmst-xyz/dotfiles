@@ -19,3 +19,10 @@ endtry
 --   set background=dark
 -- endtry
 -- ]]
+
+-- transparend background
+-- :hi! Normal ctermbg=NONE guibg=NONE
+-- :hi! NonText ctermbg=NONE guibg=NONE
+-- vim.cmd [[
+-- highlight Normal ctermbg=NONE guibg=NONE
+-- ]]
