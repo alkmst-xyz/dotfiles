@@ -91,13 +91,21 @@ repo_root_style = "bold green"
 symbol = " "
 
 [git_branch]
-symbol = " "
+symbol = ""
 format = "[$symbol$branch]($style) "
 
 [git_status]
+format = "[$all_status$ahead_behind]($style) "
+conflicted = "=${count}"
 ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "$${count}"
+modified = "!${count}"
+staged = "[+${count}](green)"
+renamed = "»${count}"
+deleted = "✘${count}"
 
 [git_metrics]
 disabled = false

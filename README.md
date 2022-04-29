@@ -34,9 +34,9 @@ stow */     # Everything (the '/' ignores the README)
 - Now, within `~/dotfiles`, run `stow`.
 
 ```sh
-# E.g: move alacritty config to your source controlled dotfiles 
+# E.g: move alacritty config to your source controlled dotfiles
 folder and create symbolic links for them in your home directory.
-# alacritty config is located in ~/.config/alacritty/alacritty.yml 
+# alacritty config is located in ~/.config/alacritty/alacritty.yml
 mkdir -p ~/.dotfiles/alacritty/.config
 mv ~/.config/alacritty ~/.dotfiles/alacritty/.config
 cd ~/.dotfiles
