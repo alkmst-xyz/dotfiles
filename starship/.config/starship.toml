@@ -10,12 +10,12 @@ $vcsh\
 $git_branch\
 $git_commit\
 $git_state\
-$git_metrics\
 $git_status\
 $hg_branch\
 $docker_context\
 $package\
 $fill\
+$git_metrics\
 $cmake\
 $cobol\
 $dart\
@@ -102,13 +102,14 @@ behind = "⇣${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 untracked = "?${count}"
 stashed = "$${count}"
-modified = "!${count}"
-staged = "[+${count}](green)"
+modified = "[!${count}](bold 208)"
+staged = "[+${count}](bold green)"
 renamed = "»${count}"
 deleted = "✘${count}"
 
 [git_metrics]
-disabled = false
+disabled = true
+format = '\(([+$added]($added_style)|[-$deleted]($deleted_style))\) '
 
 [nodejs]
 format = "[$symbol$version]($style) "
@@ -117,7 +118,7 @@ detect_folders = [""]
 
 [python]
 symbol = "🐍 "
-format = "[$symbol$virtualenv $version ]($style)" 
+format = '[$symbol$virtualenv $version]($style) '
   
 # Disable the package module, hiding it from the prompt completely
 [package]

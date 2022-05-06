@@ -42,11 +42,13 @@ alias vim=nvim
 alias docker=podman
 # alias code=codium
 
-# Plugins
-source ~/.config/zsh/key-bindings.zsh
+# Plugins and key bindings 
+# NOTE: sourced after sourcing zsh-history-substring-search
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
 source ~/.config/zsh/plugins/k/k.plugin.zsh
+source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.config/zsh/key-bindings.zsh
 
 # Starship prompt
 eval "$(starship init zsh)"
