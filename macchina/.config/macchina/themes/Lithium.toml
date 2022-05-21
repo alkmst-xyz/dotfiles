@@ -1,26 +1,23 @@
 # Lithium
 
-spacing         = 1
-padding         = 0
-hide_ascii      = true
-separator       = " "
+spacing         = 2
+padding         = 2  
+hide_ascii      = false 
+separator       = ""
 key_color       = "Yellow"
-separator_color = "Yellow"
 
 [palette]
 type            = "Light"
-glyph           = " ● "
+glyph           = "  "
 visible         = true
 
 [bar]
-glyph           = "●"
-symbol_open     = '('
-symbol_close    = ')'
-visible         = false
+glyph           = ""
+visible         = true 
 hide_delimiters = true
 
 [box]
-title           = " "
+title           = ""
 border          = "plain"
 visible         = false
 
@@ -29,12 +26,11 @@ x               = 2
 y               = 1
 
 [custom_ascii]
-color           = "Yellow"
+path            = "~/.config/macchina/ascii/fedoralinux.ascii"
 
 [randomize]
 key_color       = false
 separator_color = false
-pool            = "base"
 
 [keys]
 host            = "Host"

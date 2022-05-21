@@ -13,8 +13,8 @@ $git_state\
 $git_status\
 $hg_branch\
 $docker_context\
-$package\
 $fill\
+$package\
 $git_metrics\
 $cmake\
 $cobol\

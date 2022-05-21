@@ -20,9 +20,15 @@
   "python.linting.flake8Enabled": true,
   "clangd.arguments": ["--compile-commands-dir=build/debug"],
   "vim.useCtrlKeys": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "docker.dockerPath": "podman",
-  "remote.containers.dockerPath": "podman"
+  "remote.containers.dockerPath": "podman",
+  "mesonbuild.buildFolder": "build",
+  "mesonbuild.configureOnOpen": false,
+  "[nunjucks]": {
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  }
 }
