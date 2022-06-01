@@ -10,11 +10,11 @@
   "editor.guides.bracketPairs": "active",
   "editor.rulers": [79],
   "editor.detectIndentation": false,
+  "editor.tabSize": 2,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 16,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "diffEditor.ignoreTrimWhitespace": false,
   "python.languageServer": "Jedi",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
@@ -36,5 +36,9 @@
   },
   "[latex]": {
     "editor.defaultFormatter": "nickfode.latex-formatter"
+  },
+  "Lua.telemetry.enable": false,
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
   }
 }
