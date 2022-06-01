@@ -30,5 +30,11 @@
   "mesonbuild.configureOnOpen": false,
   "[nunjucks]": {
     "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  },
+  "files.associations": {
+    "*.html": "html"
+  },
+  "[latex]": {
+    "editor.defaultFormatter": "nickfode.latex-formatter"
   }
 }
