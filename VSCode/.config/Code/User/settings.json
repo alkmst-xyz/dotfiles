@@ -40,5 +40,8 @@
   "Lua.telemetry.enable": false,
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
   }
 }
