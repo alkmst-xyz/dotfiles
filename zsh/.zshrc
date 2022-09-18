@@ -3,13 +3,18 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 # End of lines configured by zsh-newuser-install
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/joseph/.zshrc'
-
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# completions 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# Short-option stacking can be enabled with:
+#  zstyle ':completion:*:*:docker:*' option-stacking yes
+#  zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -39,7 +44,7 @@ export PATH=$PATH:/opt/gradle/gradle-7.4.1/bin
 # Aliases
 alias ll="ls -la"
 alias vim=nvim
-alias docker=podman
+# alias docker=podman
 # alias code=codium
 
 # Plugins and key bindings 
@@ -52,4 +57,8 @@ source ~/.config/zsh/key-bindings.zsh
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+# set nvim as default editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 

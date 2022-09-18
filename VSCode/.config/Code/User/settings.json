@@ -43,5 +43,7 @@
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
-  }
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "jupyter.askForKernelRestart": false
 }

@@ -58,7 +58,6 @@ $env_var\
 $crystal\
 $custom\
 $sudo\
-$cmd_duration\
 $python\
 $line_break\
 $jobs\
@@ -66,7 +65,9 @@ $battery\
 $status\
 $shell\
 $character"""
-right_format = """$time"""
+right_format = """
+$cmd_duration\
+$time"""
 add_newline = false
 
 [character]                            
@@ -117,7 +118,7 @@ detect_files = [""]
 detect_folders = [""]
 
 [python]
-symbol = "🐍 "
+symbol = "🐍"
 format = '[$symbol$virtualenv $version]($style) '
   
 # Disable the package module, hiding it from the prompt completely
@@ -129,6 +130,7 @@ disabled = false
 format = "[$symbol$version]($style) "
 
 [time]
-disabled = false
-format = "[$time]($style)"
 time_format = "%T"
+format = "[$time]($style)"
+style = "bold cyan"
+disabled = false

@@ -27,6 +27,13 @@ stow zsh    # Just my zsh config
 stow */     # Everything (the '/' ignores the README)
 ```
 
+## Adding Completions for Docker and zsh
+
+```shell
+wget https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker -O /usr/ _docker
+sudo mv _docker /usr/share/zsh/site-functions/
+```
+
 ## Adding dotfiles
 
 - The dotfiles folder mirrors the structure of the `$HOME` directory.
