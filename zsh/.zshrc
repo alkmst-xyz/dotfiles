@@ -62,3 +62,8 @@ eval "$(starship init zsh)"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+
+# pnpm
+export PNPM_HOME="/home/joseph/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
