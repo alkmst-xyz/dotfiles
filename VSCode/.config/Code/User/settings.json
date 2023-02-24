@@ -19,25 +19,27 @@
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
   "clangd.arguments": ["--compile-commands-dir=build/debug"],
-  "vim.useCtrlKeys": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "docker.dockerPath": "podman",
-  "remote.containers.dockerPath": "podman",
+  // "remote.containers.dockerPath": "podman",
   "mesonbuild.buildFolder": "build",
   "mesonbuild.configureOnOpen": false,
-  "[nunjucks]": {
-    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  // "[nunjucks]": {
+  //   "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  // },
+  "html.suggest.html5": true,
+  "emmet.includeLanguages": {
+    "njk": "html",
+    "nunjucks": "html"
   },
   "files.associations": {
+    "*.css": "tailwindcss",
     "*.html": "html"
   },
-  "[latex]": {
-    "editor.defaultFormatter": "nickfode.latex-formatter"
-  },
-  "Lua.telemetry.enable": false,
+  // "Lua.telemetry.enable": false,
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua"
   },
@@ -45,5 +47,12 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   "diffEditor.ignoreTrimWhitespace": false,
-  "jupyter.askForKernelRestart": false
+  "jupyter.askForKernelRestart": false,
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "vim.useCtrlKeys": false
 }

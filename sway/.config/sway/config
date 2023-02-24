@@ -211,6 +211,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# touchpad gestures (works in sway 1.8)
+# bindgesture swipe:right workspace prev
+# bindgesture swipe:left workspace next
+
 #
 # Status Bar:
 #
@@ -234,5 +238,10 @@ bar {
 #     }
 # }
 
+#
+# gaps
+#
+gaps inner 10
+smart_gaps off
 
 include /etc/sway/config.d/*
