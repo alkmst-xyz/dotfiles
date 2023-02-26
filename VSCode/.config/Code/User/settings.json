@@ -39,7 +39,6 @@
     "*.css": "tailwindcss",
     "*.html": "html"
   },
-  // "Lua.telemetry.enable": false,
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua"
   },

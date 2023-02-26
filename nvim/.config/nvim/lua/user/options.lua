@@ -1,7 +1,3 @@
--- set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- set highlight on search
 vim.o.hlsearch = false
 
