@@ -76,32 +76,62 @@ require('lazy').setup({
     }
   },
 
+  -- -- "gc" to comment visual regions/lines
+  -- { 'numToStr/Comment.nvim', opts = {} },
+
   -- Adds git releated signs to the gutter, as well as utilities for managing changes
   {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '▎' },
+        topdelete = { text = '▎‾' },
         changedelete = { text = '~' },
+        untracked = { text = '┆' },
       },
     },
   },
 
-  -- -- statusline
-  -- {
-  --   'nvim-lualine/lualine.nvim',
-  --   opts = {
-  --     options = {
-  --       icons_enabled = false,
-  --       theme = 'onedark',
-  --       component_separators = '|',
-  --       section_separators = '',
-  --     },
-  --   },
-  -- },
+  -- statusline
+  {
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      options = {
+        icons_enabled = true,
+        theme = "auto",
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = {
+          statusline = {},
+          winbar = {},
+        },
+        always_divide_middle = true,
+        globalstatus = true
+      },
+      sections = {
+        lualine_a = { "hostname", },
+        lualine_b = {
+          { "branch", icon = "" },
+          { 'diff',   colored = false }
+        },
+        lualine_c = {
+          {
+            "diagnostics",
+            sources = { "nvim_lsp" },
+            colored = false,
+            update_in_insert = true,
+            always_visible = true,
+          },
+          "mode"
+        },
+        lualine_x = { "encoding", "filetype" },
+        lualine_y = { "location" },
+        lualine_z = { "progress" },
+      },
+    },
+  },
 
   -- -- Add indentation guides even on blank lines
   -- {
@@ -111,5 +141,8 @@ require('lazy').setup({
   --     show_trailing_blankline_indent = false,
   --   },
   -- },
+
+
+
 
 }, {})
