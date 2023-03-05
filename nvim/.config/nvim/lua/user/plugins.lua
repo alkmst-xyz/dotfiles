@@ -20,7 +20,7 @@ require('lazy').setup({
   -- Colorscheme
   {
     "folke/tokyonight.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
@@ -47,9 +47,33 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- show you pending keybinds
+  -- show keybinds
   {
-    'folke/which-key.nvim'
+    'folke/which-key.nvim',
+    event = "VeryLazy",
+    opts = {
+      plugins = { spelling = true },
+    },
+    config = function(_, opts)
+      local wk = require("which-key")
+      wk.setup(opts)
+      local keymaps = {
+        mode = { "n", "v" },
+        ["<leader>c"] = { name = "+code" },
+      }
+      wk.register(keymaps)
+    end,
+  },
+
+  -- fuzzy finder
+  {
+    'nvim-telescope/telescope.nvim',
+    tag          = '0.1.1',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys         = {
+      { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+      { "<leader>gs", "<cmd>Telescope git_status<CR>",  desc = "status" },
+    }
   },
 
   -- Adds git releated signs to the gutter, as well as utilities for managing changes
