@@ -28,9 +28,7 @@ require('lazy').setup({
     end,
   },
 
-
-  -- Editor
-  -- file explorer
+  -- Editor: file explorer
   {
     'nvim-neo-tree/neo-tree.nvim',
     dependencies = {
@@ -47,7 +45,7 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- show keybinds
+  -- Editor: show keybinds when pressing <Space>
   {
     'folke/which-key.nvim',
     event = "VeryLazy",
@@ -65,7 +63,7 @@ require('lazy').setup({
     end,
   },
 
-  -- fuzzy finder
+  -- Editor: fuzzy finder
   {
     'nvim-telescope/telescope.nvim',
     tag          = '0.1.1',
@@ -79,7 +77,7 @@ require('lazy').setup({
   -- -- "gc" to comment visual regions/lines
   -- { 'numToStr/Comment.nvim', opts = {} },
 
-  -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  -- Editor: git signs on the side of the editor
   {
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -94,7 +92,7 @@ require('lazy').setup({
     },
   },
 
-  -- statusline
+  -- UI: bottom statusline
   {
     'nvim-lualine/lualine.nvim',
     opts = {
@@ -133,7 +131,7 @@ require('lazy').setup({
     },
   },
 
-  -- Add indentation guides even on blank lines
+  -- UI: Add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim' },
 
 }, {})
