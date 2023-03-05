@@ -43,15 +43,97 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
+    -- opts = {
+    --   autoformat = true,
+    --   servers = {
+    --     bashls = {},
+    --     clangd = {},
+    --     neocmake = {},
+    --     unocss = {},
+    --     dockerls = {},
+    --     eslint = {},
+    --     html = {},
+    --     jsonls = {},
+    --     lua_ls = {},
+    --     remark_ls = {},
+    --     pyre = {},
+    --     svelte = {},
+    --     tailwindcss = {},
+    --     tsserver = {},
+    --   }
+    -- },
+    -- config = function(plugin, opts)
+    --   -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+    --   local capabilities = require('cmp_nvim_lsp').default_capabilities(
+    --     vim.lsp.protocol.make_client_capabilities()
+    --   )
+
+    --   -- Ensure the servers above are installed
+    --   require('mason-lspconfig').setup(
+    --     { ensure_installed = vim.tbl_keys(opts.servers) }
+    --   )
+
+    --   require('mason-lspconfig').setup_handlers(
+    --     {
+    --       function(server_name)
+    --         require('lspconfig')[server_name].setup {
+    --           capabilities = capabilities,
+    --           -- on_attach = on_attach,
+    --           settings = opts.servers[server_name],
+    --         }
+    --       end,
+    --     }
+    --   )
+    -- end
+    config = function(_, _)
+      require('neodev').setup()
+    end
+  },
+
+  -- Coding: formatters
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { 'williamboman/mason.nvim' },
+    opts = function()
+      local nls = require("null-ls")
+      return {
+        sources = {
+          -- nls.builtins.formatting.prettierd,
+          nls.builtins.formatting.stylua,
+          nls.builtins.diagnostics.flake8,
+        },
+      }
+    end,
+  },
+
+  -- Coding: cmdline tools and lsp servers
+  {
+    "williamboman/mason.nvim",
+    cmd = "Mason",
+    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "flake8",
+      },
+    },
+    config = function(_, opts)
+      require("mason").setup(opts)
+      local mr = require("mason-registry")
+      for _, tool in ipairs(opts.ensure_installed) do
+        local p = mr.get_package(tool)
+        if not p:is_installed() then
+          p:install()
+        end
+      end
+    end,
   },
 
   -- Coding: snippets
   {
     "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-
-    },
+    dependencies = { "rafamadriz/friendly-snippets" },
   },
 
   -- Coding: auto completion
@@ -65,6 +147,57 @@ require('lazy').setup({
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
     },
+  },
+
+  -- Coding: Highlight, edit, and navigate code
+  {
+    'nvim-treesitter/nvim-treesitter',
+    version = false,
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    keys = {
+      { "<c-space>", desc = "Increment selection" },
+      { "<bs>",      desc = "Decrement selection", mode = "x" },
+    },
+    opts = {
+      highlight = { enable = true },
+      indent = { enable = true, disable = { "python" } },
+      context_commentstring = { enable = true, enable_autocmd = false },
+      ensure_installed = {
+        "bash",
+        "c",
+        "cmake",
+        "cpp",
+        "javascript",
+        "json",
+        "lua",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "rust",
+        "scss",
+        "svelte",
+        "toml",
+        "typescript",
+        "yaml",
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = "<nop>",
+          node_decremental = "<bs>",
+        },
+      },
+    },
+    config = function(_, opts)
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+      require('nvim-treesitter.configs').setup(opts)
+    end,
   },
 
   -- Editor: file explorer
