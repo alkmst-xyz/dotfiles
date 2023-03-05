@@ -17,8 +17,20 @@ vim.opt.rtp:prepend(lazypath)
 -- since they will be available in the neovim runtime
 require('lazy').setup({
 
+  -- Colorscheme
+  {
+    "folke/tokyonight.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme tokyonight]])
+    end,
+  },
+
+
   -- Editor
-  -- browse file tree
+  -- file explorer
   {
     'nvim-neo-tree/neo-tree.nvim',
     dependencies = {
@@ -26,26 +38,33 @@ require('lazy').setup({
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    keys = {
+      { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    },
+    config = function()
+      require("neo-tree").setup()
+    end,
     opts = {},
   },
 
   -- show you pending keybinds
-  { 'folke/which-key.nvim', opts = {} },
+  {
+    'folke/which-key.nvim'
+  },
 
-  -- -- Adds git releated signs to the gutter, as well as utilities for managing changes
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   opts = {
-  --     -- See `:help gitsigns.txt`
-  --     signs = {
-  --       add = { text = '+' },
-  --       change = { text = '~' },
-  --       delete = { text = '_' },
-  --       topdelete = { text = '‾' },
-  --       changedelete = { text = '~' },
-  --     },
-  --   },
-  -- },
+  -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
+  },
 
   -- -- statusline
   -- {
