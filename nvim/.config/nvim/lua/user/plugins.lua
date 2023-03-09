@@ -43,98 +43,60 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
-    -- opts = {
-    --   autoformat = true,
-    --   servers = {
-    --     bashls = {},
-    --     clangd = {},
-    --     neocmake = {},
-    --     unocss = {},
-    --     dockerls = {},
-    --     eslint = {},
-    --     html = {},
-    --     jsonls = {},
-    --     lua_ls = {},
-    --     remark_ls = {},
-    --     pyre = {},
-    --     svelte = {},
-    --     tailwindcss = {},
-    --     tsserver = {},
-    --   }
-    -- },
-    -- config = function(plugin, opts)
-    --   -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-    --   local capabilities = require('cmp_nvim_lsp').default_capabilities(
-    --     vim.lsp.protocol.make_client_capabilities()
-    --   )
-
-    --   -- Ensure the servers above are installed
-    --   require('mason-lspconfig').setup(
-    --     { ensure_installed = vim.tbl_keys(opts.servers) }
-    --   )
-
-    --   require('mason-lspconfig').setup_handlers(
-    --     {
-    --       function(server_name)
-    --         require('lspconfig')[server_name].setup {
-    --           capabilities = capabilities,
-    --           -- on_attach = on_attach,
-    --           settings = opts.servers[server_name],
-    --         }
-    --       end,
-    --     }
-    --   )
-    -- end
-    config = function(_, _)
-      require('neodev').setup()
-    end
   },
 
-  -- Coding: formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { 'williamboman/mason.nvim' },
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        sources = {
-          -- nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.flake8,
-        },
-      }
-    end,
-  },
+  -- -- Coding: formatters
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   dependencies = { 'williamboman/mason.nvim' },
+  --   opts = function()
+  --     local nls = require("null-ls")
+  --     return {
+  --       sources = {
+  --         -- nls.builtins.formatting.prettierd,
+  --         nls.builtins.formatting.stylua,
+  --         nls.builtins.diagnostics.flake8,
+  --       },
+  --     }
+  --   end,
+  -- },
 
-  -- Coding: cmdline tools and lsp servers
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "flake8",
-      },
-    },
-    config = function(_, opts)
-      require("mason").setup(opts)
-      local mr = require("mason-registry")
-      for _, tool in ipairs(opts.ensure_installed) do
-        local p = mr.get_package(tool)
-        if not p:is_installed() then
-          p:install()
-        end
-      end
-    end,
-  },
+  -- -- Coding: cmdline tools and lsp servers
+  -- {
+  --   "williamboman/mason.nvim",
+  --   cmd = "Mason",
+  --   keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+  --   config = function(_, _)
+  --     -- setup mason so it can manage external tooling
+  --     require("mason").setup()
 
-  -- Coding: snippets
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = { "rafamadriz/friendly-snippets" },
-  },
+  --     -- ensure the servers above are installed
+  --     local mason_lspconfig = require("mason-registry")
+
+  --     mason_lspconfig.setup {
+  --       ensure_installed = vim.tbl_keys(servers),
+  --     }
+
+  --     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+  --     mason_lspconfig.setup_handlers {
+  --       function(server_name)
+  --         require('lspconfig')[server_name].setup {
+  --           capabilities = capabilities,
+  --           on_attach = on_attach,
+  --           settings = servers[server_name],
+  --         }
+  --       end,
+  --     }
+  --   end,
+  -- },
+
+  -- -- Coding: snippets
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   dependencies = { "rafamadriz/friendly-snippets" },
+  -- },
 
   -- Coding: auto completion
   {
@@ -145,6 +107,7 @@ require('lazy').setup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
     },
   },
