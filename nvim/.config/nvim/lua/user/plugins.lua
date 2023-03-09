@@ -109,6 +109,7 @@ require('lazy').setup({
       "hrsh7th/cmp-path",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets"
     },
   },
 
@@ -130,9 +131,6 @@ require('lazy').setup({
       context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = {
         "bash",
-        "c",
-        "cmake",
-        "cpp",
         "javascript",
         "json",
         "lua",
@@ -140,12 +138,7 @@ require('lazy').setup({
         "markdown",
         "markdown_inline",
         "python",
-        "rust",
-        "scss",
-        "svelte",
-        "toml",
         "typescript",
-        "yaml",
       },
       incremental_selection = {
         enable = true,
