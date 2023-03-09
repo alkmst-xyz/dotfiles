@@ -259,9 +259,20 @@ require('lazy').setup({
   },
 
   -- UI: Add indentation guides even on blank lines
-  { 'lukas-reineke/indent-blankline.nvim' },
+  -- { 'lukas-reineke/indent-blankline.nvim' },
+  {
+    "echasnovski/mini.indentscope",
+    version = nil,
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      symbol = "│",
+    },
+    config = function(_, opts)
+      require("mini.indentscope").setup(opts)
+    end
+  },
 
   -- UI: devicons
-  { "nvim-tree/nvim-web-devicons",        lazy = true },
+  { "nvim-tree/nvim-web-devicons", lazy = true },
 
 }, {})
