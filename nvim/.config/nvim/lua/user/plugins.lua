@@ -20,11 +20,10 @@ require('lazy').setup({
   -- Colorscheme
   {
     "folke/tokyonight.nvim",
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false,                       -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000,                    -- make sure to load this before all the other start plugins
     config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
+      vim.cmd.colorscheme("tokyonight") -- load the colorscheme here
     end,
   },
 
@@ -101,7 +100,7 @@ require('lazy').setup({
   -- Coding: auto completion
   {
     "hrsh7th/nvim-cmp",
-    version = false,
+    version = nil,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -116,7 +115,7 @@ require('lazy').setup({
   -- Coding: Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
-    version = false,
+    version = nil,
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
