@@ -262,4 +262,7 @@ require('lazy').setup({
   -- UI: Add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim' },
 
+  -- UI: devicons
+  { "nvim-tree/nvim-web-devicons",        lazy = true },
+
 }, {})
