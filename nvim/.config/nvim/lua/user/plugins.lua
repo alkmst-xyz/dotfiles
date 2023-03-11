@@ -166,6 +166,9 @@ require('lazy').setup({
     },
   },
 
+  -- UI: devicons
+  { "nvim-tree/nvim-web-devicons", lazy = true },
+
   -- UI: bottom statusline
   {
     'nvim-lualine/lualine.nvim',
@@ -203,6 +206,28 @@ require('lazy').setup({
         lualine_z = { "progress" },
       },
     },
+  },
+
+  -- UI: add indentation guides on blank lines
+  {
+    'akinsho/bufferline.nvim',
+    event = "VeryLazy",
+    opts = {
+      options = {
+        diagnostics = "nvim_lsp",
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "Neo-tree",
+            highlight = "Directory",
+            text_align = "left",
+          },
+        },
+      },
+    },
+    config = function(_, opts)
+      require("bufferline").setup(opts)
+    end
   },
 
   -- UI: add indentation guides on blank lines
@@ -282,9 +307,5 @@ require('lazy').setup({
       require("alpha").setup(dashboard.opts)
     end,
   },
-
-  -- UI: devicons
-  { "nvim-tree/nvim-web-devicons", lazy = true },
-
 
 }, {})
