@@ -113,10 +113,16 @@ require('lazy').setup({
     keys = {
       { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
     },
-    config = function()
-      require("neo-tree").setup()
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+        }
+      }
+    },
+    config = function(_, opts)
+      require("neo-tree").setup(opts)
     end,
-    opts = {},
   },
 
   -- Editor: show keybinds when pressing <Space>
