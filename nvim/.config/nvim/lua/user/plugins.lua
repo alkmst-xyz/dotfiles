@@ -114,10 +114,16 @@ require('lazy').setup({
       { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
     },
     opts = {
-      filesystem = {
+      window          = {
+        width = 30,
+      },
+      filesystem      = {
         filtered_items = {
           visible = true,
         }
+      },
+      source_selector = {
+        winbar = true,
       }
     },
     config = function(_, opts)
