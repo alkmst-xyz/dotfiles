@@ -113,22 +113,31 @@ require('lazy').setup({
     keys = {
       { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
     },
+    init = function()
+      vim.g.neo_tree_remove_legacy_commands = 1
+      if vim.fn.argc() == 1 then
+        local stat = vim.loop.fs_stat(vim.fn.argv(0))
+        if stat and stat.type == "directory" then
+          require("neo-tree")
+        end
+      end
+    end,
     opts = {
-      window          = {
+      close_if_last_window = true,
+      window               = {
         width = 30,
       },
-      filesystem      = {
+      filesystem           = {
         filtered_items = {
           visible = true,
-        }
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
       },
-      source_selector = {
+      source_selector      = {
         winbar = true,
       }
     },
-    config = function(_, opts)
-      require("neo-tree").setup(opts)
-    end,
   },
 
   -- Editor: show keybinds when pressing <Space>
