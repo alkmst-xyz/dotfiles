@@ -44,59 +44,6 @@ require('lazy').setup({
     },
   },
 
-  -- -- Coding: formatters
-  -- {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   event = { "BufReadPre", "BufNewFile" },
-  --   dependencies = { 'williamboman/mason.nvim' },
-  --   opts = function()
-  --     local nls = require("null-ls")
-  --     return {
-  --       sources = {
-  --         -- nls.builtins.formatting.prettierd,
-  --         nls.builtins.formatting.stylua,
-  --         nls.builtins.diagnostics.flake8,
-  --       },
-  --     }
-  --   end,
-  -- },
-
-  -- -- Coding: cmdline tools and lsp servers
-  -- {
-  --   "williamboman/mason.nvim",
-  --   cmd = "Mason",
-  --   keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-  --   config = function(_, _)
-  --     -- setup mason so it can manage external tooling
-  --     require("mason").setup()
-
-  --     -- ensure the servers above are installed
-  --     local mason_lspconfig = require("mason-registry")
-
-  --     mason_lspconfig.setup {
-  --       ensure_installed = vim.tbl_keys(servers),
-  --     }
-
-  --     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-  --     mason_lspconfig.setup_handlers {
-  --       function(server_name)
-  --         require('lspconfig')[server_name].setup {
-  --           capabilities = capabilities,
-  --           on_attach = on_attach,
-  --           settings = servers[server_name],
-  --         }
-  --       end,
-  --     }
-  --   end,
-  -- },
-
-  -- -- Coding: snippets
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   dependencies = { "rafamadriz/friendly-snippets" },
-  -- },
-
   -- Coding: auto completion
   {
     "hrsh7th/nvim-cmp",
@@ -258,21 +205,86 @@ require('lazy').setup({
     },
   },
 
-  -- UI: Add indentation guides even on blank lines
-  -- { 'lukas-reineke/indent-blankline.nvim' },
+  -- UI: add indentation guides on blank lines
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      char = "│",
+      show_trailing_blankline_indent = false,
+      show_current_context = false,
+    }
+  },
+
+  -- UI: active indent guide and indent text objects
   {
     "echasnovski/mini.indentscope",
     version = nil,
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       symbol = "│",
+      options = { try_as_border = true },
     },
     config = function(_, opts)
       require("mini.indentscope").setup(opts)
     end
   },
 
+  -- UI: dashboard
+  {
+    "goolord/alpha-nvim",
+    event = "VimEnter",
+    opts = function()
+      local dashboard = require("alpha.themes.dashboard")
+      local logo = [[
+        ▄▄▄       ██▓     ██ ▄█▀ ███▄ ▄███▓  ██████ ▄▄▄█████▓
+       ▒████▄    ▓██▒     ██▄█▒ ▓██▒▀█▀ ██▒▒██    ▒ ▓  ██▒ ▓▒
+       ▒██  ▀█▄  ▒██░    ▓███▄░ ▓██    ▓██░░ ▓██▄   ▒ ▓██░ ▒░
+       ░██▄▄▄▄██ ▒██░    ▓██ █▄ ▒██    ▒██   ▒   ██▒░ ▓██▓ ░
+        ▓█   ▓██▒░██████▒▒██▒ █▄▒██▒   ░██▒▒██████▒▒  ▒██▒ ░
+        ▒▒   ▓▒█░░ ▒░▓  ░▒ ▒▒ ▓▒░ ▒░   ░  ░▒ ▒▓▒ ▒ ░  ▒ ░░
+         ▒   ▒▒ ░░ ░ ▒  ░░ ░▒ ▒░░  ░      ░░ ░▒  ░ ░    ░
+         ░   ▒     ░ ░   ░ ░░ ░ ░      ░   ░  ░  ░    ░
+             ░  ░    ░  ░░  ░          ░         ░
+      ]]
+
+      dashboard.section.header.val = vim.split(logo, "\n")
+      dashboard.section.buttons.val = {
+        dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
+        dashboard.button("r", "  Recent files", ":Telescope oldfiles <CR>"),
+        dashboard.button("g", "  Find text", ":Telescope live_grep <CR>"),
+        dashboard.button("l", "⏾  Lazy", ":Lazy<CR>"),
+        dashboard.button("q", "  Quit", ":qa<CR>"),
+      }
+      for _, button in ipairs(dashboard.section.buttons.val) do
+        button.opts.hl = "AlphaButtons"
+        button.opts.hl_shortcut = "AlphaShortcut"
+      end
+      dashboard.section.footer.opts.hl = "Type"
+      dashboard.section.header.opts.hl = "AlphaHeader"
+      dashboard.section.buttons.opts.hl = "AlphaButtons"
+      dashboard.opts.layout[1].val = 8
+      return dashboard
+    end,
+    config = function(_, dashboard)
+      -- close Lazy and re-open when the dashboard is ready
+      if vim.o.filetype == "lazy" then
+        vim.cmd.close()
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "AlphaReady",
+          callback = function()
+            require("lazy").show()
+          end,
+        })
+      end
+
+      require("alpha").setup(dashboard.opts)
+    end,
+  },
+
   -- UI: devicons
   { "nvim-tree/nvim-web-devicons", lazy = true },
+
 
 }, {})
