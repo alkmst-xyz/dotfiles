@@ -187,6 +187,24 @@ require('lazy').setup({
     },
   },
 
+  -- Editor: highlight references
+  {
+    "RRethy/vim-illuminate",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {},
+    config = function(_, opts)
+      require("illuminate").configure(opts)
+    end,
+  },
+
+  -- Editor: todo comments
+  {
+    "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = { "BufReadPost", "BufNewFile" },
+    config = true,
+  },
+
   -- UI: devicons
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
