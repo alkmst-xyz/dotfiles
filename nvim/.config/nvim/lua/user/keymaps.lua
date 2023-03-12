@@ -40,8 +40,8 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 map("v", "<", "<gv", { desc = "Indent left" })
 map("v", ">", ">gv", { desc = "Indent right" })
 
--- move text up and down as visual block
-map("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move block down" })
-map("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move block up" })
-map("x", "<A-j>", ":move '>+1<CR>gv-gv", { desc = "Move block down" })
-map("x", "<A-k>", ":move '<-2<CR>gv-gv", { desc = "Move block up" })
+-- -- move text up and down as visual block
+-- map("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move block down" })
+-- map("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move block up" })
+-- map("x", "<A-j>", ":move '>+1<CR>gv-gv", { desc = "Move block down" })
+-- map("x", "<A-k>", ":move '<-2<CR>gv-gv", { desc = "Move block up" })
