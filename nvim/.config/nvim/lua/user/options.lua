@@ -44,9 +44,9 @@ vim.o.backup = false
 
 -- insert 2 spaces for each indentation or tab
 -- convert tab to spaces
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 -- highlight the current line
@@ -72,7 +72,3 @@ vim.o.sidescrolloff = 8
 --   relativenumber = false, -- set relative numbered lines
 
 --   guifont = "monospace:h17", -- the font used in graphical neovim applications
-
--- vim.o.tabstop = 4
--- vim.o.softtabstop = 4
--- vim.o.shiftwidth = 4

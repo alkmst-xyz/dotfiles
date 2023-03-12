@@ -54,6 +54,6 @@
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   "vim.useCtrlKeys": false,
-  "window.zoomLevel": 1,
-  "editor.inlineSuggest.showToolbar": "always"
+  "editor.inlineSuggest.showToolbar": "always",
+  "window.zoomLevel": 1
 }
