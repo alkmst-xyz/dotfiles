@@ -20,26 +20,37 @@ require('lazy').setup({
   -- Colorscheme
   {
     "folke/tokyonight.nvim",
-    lazy = false,                       -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000,                    -- make sure to load this before all the other start plugins
-    config = function()
-      vim.cmd.colorscheme("tokyonight") -- load the colorscheme here
+    lazy = false,    -- load this during startup if it is your main colorscheme
+    priority = 1000, -- load this before all the other start plugins
+    opts = {
+      style = "storm",
+      light_style = "day",
+      transparent = true,
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      require("tokyonight").load() -- load the colorscheme here
     end,
   },
-
 
   -- Coding: LSP
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
+      -- automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
 
-      -- Useful status updates for LSP
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- useful status updates for LSP
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          text = { spinner = "moon" },
+          window = { blend = 0 }
+        }
+      },
 
-      -- Additional lua configuration, makes nvim stuff amazing!
+      -- additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
   },
@@ -120,6 +131,16 @@ require('lazy').setup({
     end,
   },
 
+  -- Coding: commments
+  {
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("mini.comment").setup(opts)
+    end,
+  },
+
   -- Editor: file explorer
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -186,9 +207,6 @@ require('lazy').setup({
       { "<leader>gs", "<cmd>Telescope git_status<CR>",  desc = "status" },
     }
   },
-
-  -- -- "gc" to comment visual regions/lines
-  -- { 'numToStr/Comment.nvim', opts = {} },
 
   -- Editor: git signs on the side of the editor
   {
