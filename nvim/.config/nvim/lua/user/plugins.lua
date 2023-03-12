@@ -59,7 +59,7 @@ require('lazy').setup({
     },
   },
 
-  -- Coding: Highlight, edit, and navigate code
+  -- Coding: highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
     version = nil,
@@ -99,6 +99,24 @@ require('lazy').setup({
     config = function(_, opts)
       pcall(require('nvim-treesitter.install').update { with_sync = true })
       require('nvim-treesitter.configs').setup(opts)
+    end,
+  },
+
+  -- Coding: auto pairs
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    config = function(_, opts)
+      require("mini.pairs").setup(opts)
+    end,
+  },
+
+  -- Coding: surround
+  {
+    'echasnovski/mini.surround',
+    version = nil,
+    config = function(_, opts)
+      require("mini.surround").setup(opts)
     end,
   },
 
@@ -274,25 +292,12 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     event = { "BufReadPost", "BufNewFile" },
     opts = {
-      char = "│",
       show_trailing_blankline_indent = false,
-      show_current_context = false,
+      show_current_context = true,
+      show_current_context_start = true,
     }
   },
 
-  -- UI: active indent guide and indent text objects
-  {
-    "echasnovski/mini.indentscope",
-    version = nil,
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      symbol = "│",
-      options = { try_as_border = true },
-    },
-    config = function(_, opts)
-      require("mini.indentscope").setup(opts)
-    end
-  },
 
   -- UI: dashboard
   {
