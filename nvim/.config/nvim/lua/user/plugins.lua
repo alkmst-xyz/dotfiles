@@ -192,6 +192,7 @@ require('lazy').setup({
       local keymaps = {
         mode = { "n", "v" },
         ["<leader>c"] = { name = "+code" },
+        ["<leader>q"] = { "<cmd>bdelete<CR>", "Delete Buffer" },
       }
       wk.register(keymaps)
     end,
