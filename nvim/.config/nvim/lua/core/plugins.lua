@@ -54,6 +54,140 @@ require('lazy').setup({
       -- additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
+    opts = {
+      -- options for vim.diagnostic.config()
+      diagnostics = {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = {
+          spacing = 4,
+          source = "if_many",
+          prefix = "●",
+          -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+          -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+          -- prefix = "icons",
+        },
+        severity_sort = true,
+      },
+      -- add any global capabilities here
+      capabilities = {},
+      -- Automatically format on save
+      autoformat = true,
+      -- options for vim.lsp.buf.format
+      -- `bufnr` and `filter` is handled by the LazyVim formatter,
+      -- but can be also overridden when specified
+      format = {
+        formatting_options = nil,
+        timeout_ms = nil,
+      },
+      -- LSP enabled
+      -- (1) each key is the server name
+      -- (2) the value is the server spefic setting used in lspconfig
+      servers = {
+        jsonls = {},
+        lua_ls = {},
+        eslint = {},
+        tsserver = {},
+        pylsp = {},
+      },
+      setup = {},
+    },
+    config = function(_, opts)
+      -- helper function to attach keymaps to buffers with active LSP servers
+      -- sets the mode, buffer and description for each server
+      local on_attach = function(_, bufnr)
+        -- helper function to map LSP commands
+        local map = function(keys, func, desc)
+          if desc then
+            desc = "LSP: " .. desc
+          end
+
+          vim.keymap.set('n', keys, func,
+            { noremap = true, silent = true, buffer = bufnr, desc = desc }
+          )
+        end
+
+        map('gD', vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+        map('gd', vim.lsp.buf.definition, "[G]oto [D]efinition")
+        map('gi', vim.lsp.buf.implementation, "List [I]mplementations")
+        map('gr', vim.lsp.buf.references, "List [R]eferences")
+
+        map('K', vim.lsp.buf.hover, "Hover Documentation")
+        map('<C-k>', vim.lsp.buf.signature_help, "Signature Documentation")
+
+        map('<leader>wa', vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+        map('<leader>wr', vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+        map('<leader>wl',
+          function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          end,
+          "[W]orkspace [L]ist Folders"
+        )
+
+        map('<leader>D', vim.lsp.buf.type_definition, "Type [D]efinition")
+        map('<leader>rn', vim.lsp.buf.rename, "[R]e[n]ame")
+        map('<leader>ca', vim.lsp.buf.code_action, "[C]ode [A]ction")
+        map('<leader>f',
+          function()
+            vim.lsp.buf.format({ async = true })
+          end,
+          "Format"
+        )
+      end
+
+      -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
+      )
+
+      -- setup mason-lspconfig
+      local mlsp = require("mason-lspconfig")
+
+      -- ensure the servers are installed
+      mlsp.setup({
+        ensure_installed = vim.tbl_keys(opts.servers)
+      })
+      mlsp.setup_handlers({
+        function(server_name)
+          require('lspconfig')[server_name].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = opts.servers[server_name],
+          })
+        end,
+      })
+    end
+  },
+
+  -- Coding: LSP servers, linters, formatters
+  {
+    'williamboman/mason.nvim',
+    cmd = "Mason",
+    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "shfmt",
+        "flake8",
+      },
+    },
+    config = function(_, opts)
+      require("mason").setup(opts)
+      local mr = require("mason-registry")
+      local function ensure_installed()
+        for _, tool in ipairs(opts.ensure_installed) do
+          local p = mr.get_package(tool)
+          if not p:is_installed() then
+            p:install()
+          end
+        end
+      end
+      if mr.refresh then
+        mr.refresh(ensure_installed)
+      else
+        ensure_installed()
+      end
+    end
   },
 
   -- Coding: auto completion
