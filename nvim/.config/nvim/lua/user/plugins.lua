@@ -371,4 +371,7 @@ require('lazy').setup({
     end,
   },
 
+  -- TODO UI: file preview map like mini.map
+
+
 }, {})

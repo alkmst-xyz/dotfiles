@@ -55,5 +55,5 @@
   },
   "vim.useCtrlKeys": false,
   "editor.inlineSuggest.showToolbar": "always",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 3
 }
