@@ -88,14 +88,20 @@ require('lazy').setup({
         lua_ls = {},
         eslint = {},
         tsserver = {},
-        pylsp = {},
+        pylsp = {
+          plugins = {
+            pyflakes = { enabled = false },
+            pylint = { enabled = false },
+            autopep8 = { enabled = false }
+          },
+        },
       },
       setup = {},
     },
     config = function(_, opts)
       -- helper function to attach keymaps to buffers with active LSP servers
       -- sets the mode, buffer and description for each server
-      local on_attach = function(_, bufnr)
+      local on_attach = function(client, buf)
         -- helper function to map LSP commands
         local map = function(keys, func, desc)
           if desc then
@@ -103,7 +109,7 @@ require('lazy').setup({
           end
 
           vim.keymap.set('n', keys, func,
-            { noremap = true, silent = true, buffer = bufnr, desc = desc }
+            { noremap = true, silent = true, buffer = buf, desc = desc }
           )
         end
 
@@ -133,6 +139,26 @@ require('lazy').setup({
           end,
           "Format"
         )
+
+        -- dont format if client disabled it
+        if
+            client.config
+            and client.config.capabilities
+            and client.config.capabilities.documentFormattingProvider == false
+        then
+          return
+        end
+
+        -- create autocommand to save on write
+        if client.supports_method("textDocument/formatting") then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("LspFormat." .. buf, {}),
+            buffer = buf,
+            callback = function()
+              vim.lsp.buf.format({ async = true })
+            end,
+          })
+        end
       end
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -159,7 +185,7 @@ require('lazy').setup({
     end
   },
 
-  -- Coding: LSP servers, linters, formatters
+  -- Coding: install LSP servers, linters, formatters
   {
     'williamboman/mason.nvim',
     cmd = "Mason",
@@ -169,6 +195,7 @@ require('lazy').setup({
         "stylua",
         "shfmt",
         "flake8",
+        "prettierd"
       },
     },
     config = function(_, opts)
@@ -188,6 +215,27 @@ require('lazy').setup({
         ensure_installed()
       end
     end
+  },
+
+  -- Coding: formatter
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "mason.nvim"
+    },
+    opts = function()
+      local nls = require("null-ls")
+      return {
+        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+        sources = {
+          nls.builtins.formatting.shfmt,
+          nls.builtins.diagnostics.flake8,
+          nls.builtins.formatting.black,
+          nls.builtins.formatting.prettierd,
+        },
+      }
+    end,
   },
 
   -- Coding: auto completion
