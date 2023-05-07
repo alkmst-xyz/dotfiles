@@ -36,6 +36,7 @@ require('lazy').setup({
   -- Coding: LSP
   {
     'neovim/nvim-lspconfig',
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
@@ -58,7 +59,7 @@ require('lazy').setup({
   -- Coding: auto completion
   {
     "hrsh7th/nvim-cmp",
-    version = nil,
+    version = false,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",

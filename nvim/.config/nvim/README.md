@@ -1,6 +1,11 @@
 # NeoVim config
 
-- Package manager: LazyGit
+```sh
+# get nvim
+wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage /usr/bin/nvim
+```
 
 ## Credits
 
