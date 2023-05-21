@@ -15,6 +15,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Short-option stacking can be enabled with:
 #  zstyle ':completion:*:*:docker:*' option-stacking yes
 #  zstyle ':completion:*:*:docker-*:*' option-stacking yes
+#
+#  add completions
+fpath=(.config/zsh/zsh-completions/src $fpath)
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -62,7 +65,6 @@ eval "$(starship init zsh)"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-
 # pnpm
 export PNPM_HOME="/home/joseph/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
@@ -71,3 +73,6 @@ export PATH="$PNPM_HOME:$PATH"
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 # pnpm end
+
+# golang
+export GOPATH=$HOME/go
