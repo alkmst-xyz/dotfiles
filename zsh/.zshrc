@@ -11,10 +11,10 @@ compinit
 # End of lines added by compinstall
 
 # completions
-zstyle ':completion:*' menu select                             # completions menu
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'         # match small case to small/capital
-zstyle ':completion:*:descriptions' format '%F{green}%B%d%b%f' # descriptions are bold green
-fpath=($HOME/.config/zsh/extra/zsh-completions/src $fpath)     # additional completions
+zstyle ':completion:*' menu select                                   # completions menu
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'               # match small case to small/capital
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}%B%d%b%f' # descriptions are bold green
+fpath=($HOME/.config/zsh/extra/zsh-completions/src $fpath)           # additional completions
 
 # plugins and key bindings
 source $HOME/.config/zsh/extra/zsh-autosuggestions/zsh-autosuggestions.zsh
