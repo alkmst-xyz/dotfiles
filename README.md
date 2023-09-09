@@ -51,6 +51,13 @@ stow alacritty
 ls -la ~/.config | grep alacritty
 ```
 
+## Update zsh plugins
+
+```bash
+cd zsh/.config/zsh/extra
+for d in ./*/ ; do (cd "$d" && git pull); done
+```
+
 ## References
 
 1. [Machfiles](https://github.com/ChristianChiarulli/Machfiles)
