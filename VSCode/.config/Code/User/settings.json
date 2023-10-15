@@ -2,7 +2,7 @@
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Dracula",
   "window.menuBarVisibility": "toggle",
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "editor.fontLigatures": true,
   "editor.formatOnSave": true,
   "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
@@ -12,12 +12,9 @@
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
   "telemetry.telemetryLevel": "off",
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 14,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "python.languageServer": "Jedi",
-  "python.formatting.provider": "black",
-  "python.linting.flake8Enabled": true,
   "clangd.arguments": ["--compile-commands-dir=build/debug"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
@@ -46,14 +43,28 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   "diffEditor.ignoreTrimWhitespace": false,
+  "python.formatting.provider": "black",
   "jupyter.askForKernelRestart": false,
   "svelte.enable-ts-plugin": true,
   "svelte.plugin.svelte.note-new-transformation": false,
-  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vim.useCtrlKeys": false,
   "editor.inlineSuggest.showToolbar": "always",
-  "window.zoomLevel": 3
+  "window.zoomLevel": 4,
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.editorAssociations": {
+    "*.db": "sqlite-viewer.option"
+  },
+  "[bibtex]": {
+    "editor.defaultFormatter": "jrbentzon.bibtex-formatter"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }
