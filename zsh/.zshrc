@@ -7,7 +7,10 @@ SAVEHIST=10000
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
-compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 # End of lines added by compinstall
 
 # completions
