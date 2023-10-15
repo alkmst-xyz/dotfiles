@@ -45,6 +45,7 @@ require('lazy').setup({
       -- useful status updates for LSP
       {
         'j-hui/fidget.nvim',
+        tag = "legacy",
         opts = {
           text = { spinner = "moon" },
           window = { blend = 0 }
@@ -367,6 +368,18 @@ require('lazy').setup({
     end,
   },
 
+  	-- coding: refactoring plugin
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("refactoring").setup()
+		end,
+	},
+
   -- Coding: auto pairs
   {
     "echasnovski/mini.pairs",
@@ -568,7 +581,10 @@ require('lazy').setup({
       show_trailing_blankline_indent = false,
       show_current_context = true,
       show_current_context_start = true,
-    }
+    },
+    config = function()
+      require("ibl").setup()
+    end
   },
 
 
