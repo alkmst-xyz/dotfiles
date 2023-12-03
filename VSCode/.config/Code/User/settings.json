@@ -1,6 +1,5 @@
 {
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Dracula",
   "window.menuBarVisibility": "toggle",
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
@@ -42,18 +41,16 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
   },
-  "diffEditor.ignoreTrimWhitespace": false,
   "python.formatting.provider": "black",
   "jupyter.askForKernelRestart": false,
   "svelte.enable-ts-plugin": true,
   "svelte.plugin.svelte.note-new-transformation": false,
   "workbench.iconTheme": "material-icon-theme",
   "[svelte]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   "vim.useCtrlKeys": false,
   "editor.inlineSuggest.showToolbar": "always",
-  "window.zoomLevel": 4,
   "git.openRepositoryInParentFolders": "never",
   "workbench.editorAssociations": {
     "*.db": "sqlite-viewer.option"
@@ -66,5 +63,11 @@
   },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "window.zoomLevel": 3,
+  "workbench.colorTheme": "Wistful"
 }
