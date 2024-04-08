@@ -1,4 +1,4 @@
-# NeoVim config
+# nvim config
 
 ```sh
 # get nvim
