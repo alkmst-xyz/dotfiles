@@ -58,6 +58,12 @@ cd zsh/.config/zsh/extra
 for d in ./*/ ; do (cd "$d" && git pull); done
 ```
 
+## Deleting config
+
+- When deleting symbolic links from the config folder, don't include a trailing slash.
+- This will delete the contents inside the parent location.
+- [Ref](https://serverfault.com/questions/371731/cant-delete-symbolic-link).
+
 ## References
 
 1. [Machfiles](https://github.com/ChristianChiarulli/Machfiles)

@@ -14,7 +14,6 @@ set -gx PNPM_HOME "/home/joseph/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
-# pnpm end
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
@@ -28,6 +27,9 @@ pyenv init - | source
 # golang
 fish_add_path $HOME/.local/go/bin
 
+# disable greeting
+set -g fish_greeting
+
 # abbreviations
 abbr -a -- vim nvim
 abbr -a -- ll ls -la 
@@ -35,6 +37,7 @@ abbr -a -- ll ls -la
 # set nvim as default editor
 set -gx EDITOR nvim
 
-# place at end
+# starship
 starship init fish | source
+
 # end
