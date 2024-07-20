@@ -1,3 +1,7 @@
+--[[
+-- Options
+--]]
+
 -- set highlight on search
 vim.o.hlsearch = false
 
@@ -59,16 +63,15 @@ vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 
 
--- still considering
+-- -- still considering
+-- cmdheight = 1, -- more space in the neovim command line for displaying messages
+-- pumheight = 10, -- pop up menu height
 
---   cmdheight = 1, -- more space in the neovim command line for displaying messages
---   pumheight = 10, -- pop up menu height
+-- showmode = false, -- we don't need to see things like -- INSERT -- anymore
 
---   showmode = false, -- we don't need to see things like -- INSERT -- anymore
+-- splitbelow = true, -- force all horizontal splits to go below current window
+-- splitright = true, -- force all vertical splits to go to the right of current window
 
---   splitbelow = true, -- force all horizontal splits to go below current window
---   splitright = true, -- force all vertical splits to go to the right of current window
+-- relativenumber = false, -- set relative numbered lines
 
---   relativenumber = false, -- set relative numbered lines
-
---   guifont = "monospace:h17", -- the font used in graphical neovim applications
+-- guifont = "monospace:h17", -- the font used in graphical neovim applications

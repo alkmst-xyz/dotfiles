@@ -1,3 +1,12 @@
+--[[
+-- Keymaps
+--]]
+
+-- Required to set `mapleader` and `maplocalleader` before loading
+-- lazy.nvim so that mappings are correct.
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 -- helper function
 local function map(mode, lhs, rhs, opts)
   opts = opts or {}
@@ -6,9 +15,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 map({ 'n', 'v' }, '<Space>', '<Nop>')
 
 -- remap for dealing with word wrap
