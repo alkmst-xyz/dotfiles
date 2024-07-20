@@ -20,18 +20,11 @@ stow zsh    # Just my zsh config
 stow */     # Everything (the '/' ignores the README)
 ```
 
-## Adding Completions for Docker and zsh
+## Adding a config
 
-```shell
-wget https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker -O /usr/ _docker
-sudo mv _docker /usr/share/zsh/site-functions/
-```
-
-## Adding dotfiles
-
-- The dotfiles folder mirrors the structure of the `$HOME` directory.
-- In order to manage configuration using `stow`, **_move_** those dotfiles into new folders with their name as an identifier.
-- Now, within `~/dotfiles`, run `stow`.
+- A 'dotfiles' folder of an application mirrors the structure of the `$HOME` directory.
+- To manage an app's config files using `stow`, **_move_** the files to a new folder with the app's name in the root level.
+- Now, within `dotfiles`, run `stow`.
 
 ```sh
 # E.g: move alacritty config to your source controlled dotfiles
@@ -44,18 +37,27 @@ stow alacritty
 ls -la ~/.config | grep alacritty
 ```
 
-## Update zsh plugins
+## Deleting a config
+
+- When deleting symbolic links from the config folder, don't include a trailing slash.
+- This will delete the contents inside the parent location.
+- [Ref](https://serverfault.com/questions/371731/cant-delete-symbolic-link).
+
+## zsh
+
+### Adding Completions for Docker and zsh
+
+```bash
+wget https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker -O /usr/ _docker
+sudo mv _docker /usr/share/zsh/site-functions/
+```
+
+### Update zsh plugins
 
 ```bash
 cd zsh/.config/zsh/extra
 for d in ./*/ ; do (cd "$d" && git pull); done
 ```
-
-## Deleting config
-
-- When deleting symbolic links from the config folder, don't include a trailing slash.
-- This will delete the contents inside the parent location.
-- [Ref](https://serverfault.com/questions/371731/cant-delete-symbolic-link).
 
 ## References
 
