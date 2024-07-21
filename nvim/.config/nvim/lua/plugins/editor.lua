@@ -219,7 +219,7 @@ return {
 
     },
 
-
+    -- Shows diagnostics, references, search results, etc.
     {
         "folke/trouble.nvim",
         cmd = "Trouble",
@@ -292,6 +292,28 @@ return {
                 desc = "Next Trouble/Quickfix Item",
             },
         },
-    }
+    },
 
+    -- Adds git related signs to the gutter, as well as utilities for managing changes
+    {
+        "lewis6991/gitsigns.nvim",
+        event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+        opts = {
+            signs = {
+                add          = { text = '+' },
+                change       = { text = '~' },
+                delete       = { text = "" },
+                topdelete    = { text = "" },
+                changedelete = { text = "▎" },
+                untracked    = { text = '┆' },
+            },
+            signs_staged = {
+                add          = { text = "▎" },
+                change       = { text = "▎" },
+                delete       = { text = "" },
+                topdelete    = { text = "" },
+                changedelete = { text = "▎" },
+            },
+        },
+    },
 }
