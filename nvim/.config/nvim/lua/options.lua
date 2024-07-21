@@ -32,8 +32,8 @@ opt.splitright = true
 
 -- Set how neovim displays whitespace characters
 opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣'}
--- opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '↲' } 
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '↲' }
 
 -- Substitutions are previewed in a split window
 opt.inccommand = "split"
@@ -57,11 +57,9 @@ opt.smartindent = true
 
 opt.termguicolors = true
 
-
 -- opt.completeopt = 'menuone,noselect'
 
 -- opt.cmdheight = 1               -- more space in the neovim command line for displaying messages
 -- opt.pumheight = 10              -- pop up menu height
 --
 -- opt.guifont = "monospace:h17"   -- the font used in graphical neovim applications
-
