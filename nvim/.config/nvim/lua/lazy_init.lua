@@ -21,7 +21,7 @@ if not vim.uv.fs_stat(lazypath) then
   end
 end
 
--- add lazy to the `runtimepath`, this allows us to `require` it.
+-- Add lazy to the `runtimepath`, this allows us to `require` it
 ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
