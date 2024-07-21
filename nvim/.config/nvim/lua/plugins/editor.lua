@@ -146,6 +146,7 @@ return {
         end,
     },
 
+    -- Popup to show keybindings
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -197,13 +198,13 @@ return {
             },
         },
         keys = {
---            {
---                "<leader>?",
---                function()
---                    require("which-key").show({ global = false })
---                end,
---                desc = "Buffer Keymaps (which-key)",
---            },
+            -- {
+            --     "<leader>?",
+            --     function()
+            --         require("which-key").show({ global = false })
+            --     end,
+            --     desc = "Buffer Keymaps (which-key)",
+            -- },
             {
                 "<c-w><space>",
                 function()
@@ -215,5 +216,82 @@ return {
         config = function(_, opts)
             require("which-key").setup(opts)
         end,
+
+    },
+
+
+    {
+        "folke/trouble.nvim",
+        cmd = "Trouble",
+        opts = {
+            modes = {
+                lsp = {
+                    win = { position = "right" },
+                },
+            },
+        },
+        keys = {
+            {
+                "<leader>xx",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+            {
+                "<leader>xX",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Buffer Diagnostics (Trouble)",
+            },
+            {
+                "<leader>cs",
+                -- "<cmd>Trouble symbols toggle focus=false<cr>",
+                "<cmd>Trouble symbols toggle<cr>",
+                desc = "Symbols (Trouble)",
+            },
+            {
+                "<leader>cl",
+                -- "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+                "<cmd>Trouble lsp toggle<cr>",
+                desc = "LSP Definitions / References / ... (Trouble)",
+            },
+            {
+                "<leader>xL",
+                "<cmd>Trouble loclist toggle<cr>",
+                desc = "Location List (Trouble)",
+            },
+            {
+                "<leader>xQ",
+                "<cmd>Trouble qflist toggle<cr>",
+                desc = "Quickfix List (Trouble)",
+            },
+            {
+                "[q",
+                function()
+                    if require("trouble").is_open() then
+                        require("trouble").prev({ skip_groups = true, jump = true })
+                    else
+                        local ok, err = pcall(vim.cmd.cprev)
+                        if not ok then
+                            vim.notify(err, vim.log.levels.ERROR)
+                        end
+                    end
+                end,
+                desc = "Previous Trouble/Quickfix Item",
+            },
+            {
+                "]q",
+                function()
+                    if require("trouble").is_open() then
+                        require("trouble").next({ skip_groups = true, jump = true })
+                    else
+                        local ok, err = pcall(vim.cmd.cnext)
+                        if not ok then
+                            vim.notify(err, vim.log.levels.ERROR)
+                        end
+                    end
+                end,
+                desc = "Next Trouble/Quickfix Item",
+            },
+        },
     }
+
 }
