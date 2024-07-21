@@ -1,6 +1,5 @@
---[[
--- Options
---]]
+-- [[ Options ]]
+
 local opt = vim.opt
 
 opt.number = true
@@ -18,28 +17,30 @@ opt.swapfile = false
 opt.backup = false
 opt.undofile = true
 
--- case-insensitive searching, unless uppercase is used
+-- Case-insensitive searching, unless uppercase is used
 opt.ignorecase = true
 opt.smartcase = true
 
 opt.signcolumn = "yes"
 
--- decrease update time and mapped sequence wait time (displays which-key sooner)
+-- Decrease update time and mapped sequence wait time (displays which-key sooner)
 opt.updatetime = 250
 opt.timeoutlen = 300
 
 opt.splitbelow = true
 opt.splitright = true
 
--- how neovim displays whitespace characters
+-- Set how neovim displays whitespace characters
 opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣'}
+-- opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '↲' } 
 
--- substitutions are previewed in a split window
+-- Substitutions are previewed in a split window
 opt.inccommand = "split"
 
 opt.cursorline = true
 
+-- TODO: move to after/ per language config
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
@@ -48,16 +49,13 @@ opt.expandtab = true
 opt.wrap = true
 opt.linebreak = true
 
--- number of lines to show vertically/horizontally when scrolling
+-- Number of lines to show vertically/horizontally when scrolling
 opt.scrolloff = 10
 opt.sidescrolloff = 8
 
 opt.smartindent = true
 
 opt.termguicolors = true
-
-opt.hlsearch = false
-
 
 
 -- opt.completeopt = 'menuone,noselect'
