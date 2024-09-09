@@ -59,6 +59,28 @@ cd zsh/.config/zsh/extra
 for d in ./*/ ; do (cd "$d" && git pull); done
 ```
 
+## tmux
+
+```bash
+# install tpm
+cd .dotfiles/
+./tmux/.config/tmux/install-tpm.sh
+tmux source ~/.config/tmux/tmux.conf
+
+# install plugins
+tmux
+
+# `prefix + I`
+#
+# - Installs new plugins from GitHub or any other git repository
+# - Refreshes TMUX environment
+
+# `prefix + U`
+#
+# - updates plugin(s)
+```
+
+
 ## References
 
 1. [Machfiles](https://github.com/ChristianChiarulli/Machfiles)
