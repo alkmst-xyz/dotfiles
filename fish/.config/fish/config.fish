@@ -9,6 +9,9 @@ fish_add_path $HOME/.local/bin/
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
 
+# disable greeting
+set -g fish_greeting
+
 # pnpm
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
@@ -27,9 +30,6 @@ pyenv init - | source
 # golang
 fish_add_path $HOME/.local/go/bin
 
-# disable greeting
-set -g fish_greeting
-
 # abbreviations
 abbr -a -- vim nvim
 abbr -a -- ll ls -la 
@@ -41,10 +41,3 @@ set -gx EDITOR nvim
 starship init fish | source
 
 # end
-
-# pnpm
-set -gx PNPM_HOME "/home/joseph/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
