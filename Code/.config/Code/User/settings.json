@@ -68,6 +68,5 @@
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "diffEditor.ignoreTrimWhitespace": false,
-  "window.zoomLevel": 3,
   "workbench.colorTheme": "Wistful"
 }
