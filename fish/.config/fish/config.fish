@@ -30,6 +30,9 @@ pyenv init - | source
 # golang
 fish_add_path $HOME/.local/go/bin
 
+# asdf
+source ~/.asdf/asdf.fish
+
 # abbreviations
 abbr -a -- vim nvim
 abbr -a -- ll ls -la 
