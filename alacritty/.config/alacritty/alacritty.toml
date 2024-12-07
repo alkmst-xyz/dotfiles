@@ -1,20 +1,13 @@
-[env]
-TERM = "alacritty"
-
-[window]
-decorations = "none"
-opacity = 0.85
-dynamic_title = true
-
-[font]
-size = 13
-
-[font.normal]
-family = "CaskaydiaCove Nerd Font"
-
-[cursor.style]
-shape = "Block"
-blinking = "On"
-
 [general]
 import = ["~/.config/alacritty/themes/dracula.toml"]
+
+[window]
+decorations = "None"
+opacity = 0.85
+
+[font]
+normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
+size = 13
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
