@@ -1,4 +1,4 @@
---target=~/.config
+# --target=~/.config
 --ignore=.stowrc
 --ignore=README.md
 --ignore=LICENSE

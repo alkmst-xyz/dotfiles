@@ -71,6 +71,9 @@ tmux
 # - updates plugin(s)
 ```
 
+## TODO
+
+- move every config one level up (remove `.config/` parent folder). This is handled by `--target` in `.stowrc`.
 
 ## References
 
