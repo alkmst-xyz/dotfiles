@@ -1,23 +1,15 @@
 # dotfiles
 
-## Installing
+## Install
 
-- You will need `git` and GNU `stow`.
-- Clone into your `$HOME` directory.
-
-```bash
-git clone https://github.com/josephsv96/dotfiles.git ~
-cd dotfiles
-```
-
-- Run `stow` to symlink everything or just select what you want.
+- Uses `stow` to symlink each config.
 
 ```bash
-stow zsh    # Just my zsh config
+stow tmux   # Just my tmux config
 ```
 
 ```bash
-stow */     # Everything (the '/' ignores the README)
+stow .      # All configs
 ```
 
 ## Adding a config
@@ -63,7 +55,6 @@ for d in ./*/ ; do (cd "$d" && git pull); done
 
 ```bash
 # install tpm
-cd .dotfiles/
 ./tmux/.config/tmux/install-tpm.sh
 tmux source ~/.config/tmux/tmux.conf
 
