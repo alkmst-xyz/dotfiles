@@ -20,7 +20,8 @@ return {
     -- LSP servers to setup
     opts = {
       servers = {
-        lua_ls = {}
+        lua_ls = {},
+        ruff   = {}
       }
     },
 
