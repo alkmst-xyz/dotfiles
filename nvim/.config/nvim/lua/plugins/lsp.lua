@@ -17,23 +17,24 @@ return {
       { 'saghen/blink.cmp' },
     },
 
-    -- define servers to be configured
+    -- LSP servers to setup
     opts = {
       servers = {
         lua_ls = {}
       }
     },
 
-    config = function()
+    config = function(_, opts)
       -- mason
       require("mason").setup()
       require("mason-lspconfig").setup()
 
       -- Calling setup for each LSP server
       local lspconfig = require("lspconfig")
-
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-      lspconfig['lua_ls'].setup({ capabilities = capabilities })
+      for server, config in pairs(opts.servers) do
+        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+        lspconfig[server].setup(config)
+      end
 
       -- Format the current buffer on write
       -- LspAttach is the key to know what to do when an LSP attaches to the buffer
