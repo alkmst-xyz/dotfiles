@@ -14,18 +14,30 @@ return {
     dependencies = {
       { "williamboman/mason.nvim",          config = true },
       { "williamboman/mason-lspconfig.nvim" },
+      { 'saghen/blink.cmp' },
     },
+
+    -- define servers to be configured
+    opts = {
+      servers = {
+        lua_ls = {}
+      }
+    },
+
     config = function()
       -- mason
       require("mason").setup()
       require("mason-lspconfig").setup()
 
-      -- LSP servers
-      require("lspconfig").lua_ls.setup({})
+      -- Calling setup for each LSP server
+      local lspconfig = require("lspconfig")
 
-      -- autocmd to format the current buffer on write
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      lspconfig['lua_ls'].setup({ capabilities = capabilities })
+
+      -- Format the current buffer on write
       -- LspAttach is the key to know what to do when an LSP attaches to the buffer
-      -- This autocmd on very 'LspAttach' event (this does not have a buffer event)
+      -- This autocmd runs on very 'LspAttach' event (this does not have a buffer event)
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -33,7 +45,7 @@ return {
           -- skip implementation and completion for now
           if not client then return end
 
-          -- This autocmd only listens on this buffer
+          -- New autocmd that only listens on this buffer
           -- Format the current buffer on save
           ---@diagnostic disable-next-line: missing-parameter
           if client.supports_method('textDocument/formatting') then
