@@ -20,8 +20,11 @@ set $menu wmenu-run
 
 ### Output configuration
 #
+# Note: Wallpaper is managed by wpaperd (see end of this file.)
+#
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+ 
 #
 # Example configuration:
 #
@@ -233,5 +236,8 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+# plugin: wpaperd
+exec ~/.local/bin/wpaperd -d
 
 include /etc/sway/config.d/*
