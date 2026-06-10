@@ -45,7 +45,7 @@
         "editor.defaultFormatter": "jrbentzon.bibtex-formatter"
     },
     "[shellscript]": {
-        "editor.defaultFormatter": "mkhl.shfmt"
+        "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode"
     },
     "[ignore]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"

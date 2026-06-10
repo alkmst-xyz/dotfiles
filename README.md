@@ -25,6 +25,12 @@ for d in ./*/ ; do (cd "$d" && git pull); done
 ```
 -->
 
+## Software
+
+| Name | Version |
+| ---- | ------- |
+| lf   | r41     |
+
 ## `tmux`
 
 ```bash
