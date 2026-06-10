@@ -1,111 +1,136 @@
 {
-  "workbench.startupEditor": "none",
-  "window.menuBarVisibility": "toggle",
-  "editor.fontSize": 14,
-  "editor.fontLigatures": true,
-  "editor.formatOnSave": true,
-  "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
-  "editor.rulers": [79],
-  "editor.detectIndentation": false,
-  "editor.tabSize": 4,
-  "telemetry.telemetryLevel": "off",
-  "terminal.integrated.fontSize": 14,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "clangd.arguments": ["--compile-commands-dir=build/debug"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "docker.dockerPath": "podman",
-  // "remote.containers.dockerPath": "podman",
-  "mesonbuild.buildFolder": "build",
-  "mesonbuild.configureOnOpen": false,
-  // "[nunjucks]": {
-  //   "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
-  // },
-  "html.suggest.html5": true,
-  "emmet.includeLanguages": {
-    "njk": "html",
-    "nunjucks": "html"
-  },
-  "files.associations": {
-    "*.css": "tailwindcss",
-    "*.html": "html"
-  },
-  "[lua]": {
-    "editor.defaultFormatter": "sumneko.lua"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  },
-  "python.formatting.provider": "black",
-  "jupyter.askForKernelRestart": false,
-  "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.note-new-transformation": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "vim.useCtrlKeys": false,
-  "editor.inlineSuggest.showToolbar": "always",
-  "git.openRepositoryInParentFolders": "never",
-  "workbench.editorAssociations": {
-    "*.db": "sqlite-viewer.option"
-  },
-  "[bibtex]": {
-    "editor.defaultFormatter": "jrbentzon.bibtex-formatter"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml"
-  },
-  "diffEditor.ignoreTrimWhitespace": false,
-  "workbench.colorTheme": "Dracula Theme",
-  "cmake.pinnedCommands": [
-    "workbench.action.tasks.configureTaskRunner",
-    "workbench.action.tasks.runTask"
-  ],
-  "cmake.options.statusBarVisibility": "visible",
-  "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
-  "cmake.showOptionsMovedNotification": false,
-  "explorer.fileNesting.patterns": {
-    "*.ts": "${capture}.js",
-    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-    "*.jsx": "${capture}.js",
-    "*.tsx": "${capture}.ts",
-    "tsconfig.json": "tsconfig.*.json",
-    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
-    "*.sqlite": "${capture}.${extname}-*",
-    "*.db": "${capture}.${extname}-*",
-    "*.sqlite3": "${capture}.${extname}-*",
-    "*.db3": "${capture}.${extname}-*",
-    "*.sdb": "${capture}.${extname}-*",
-    "*.s3db": "${capture}.${extname}-*"
-  },
-  "[c]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
-  "cSpell.userWords": [
-    "nuxt",
-    "nuxtjs",
-    "Raylib",
-    "shadcn",
-    "subcollection",
-    "subcollections",
-    "tailwindcss",
-    "Unshifted"
-  ],
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+    "workbench.startupEditor": "none",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.rulers": [80],
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.fontSize": 14,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "clangd.arguments": ["--compile-commands-dir=build/debug"],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "html.suggest.html5": false,
+    "emmet.includeLanguages": {
+        "njk": "html",
+        "nunjucks": "html"
+    },
+    "files.associations": {
+        "*.css": "tailwindcss",
+        "*.html": "html"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "svelte.enable-ts-plugin": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "vim.useCtrlKeys": false,
+    "editor.inlineSuggest.showToolbar": "always",
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.editorAssociations": {
+        "*.db": "sqlite-viewer.option"
+    },
+    "[bibtex]": {
+        "editor.defaultFormatter": "jrbentzon.bibtex-formatter"
+    },
+    "[shellscript]": {
+        "editor.defaultFormatter": "mkhl.shfmt"
+    },
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "diffEditor.ignoreTrimWhitespace": true,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "cmake.options.statusBarVisibility": "visible",
+    "[cpp]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "cSpell.userWords": [
+        "duckdb",
+        "ducklake",
+        "Lookback",
+        "nuxt",
+        "nuxtjs",
+        "Raylib",
+        "shadcn",
+        "subcollection",
+        "subcollections",
+        "tailwindcss",
+        "Turso",
+        "UBIGINT",
+        "Unshifted",
+        "UTINYINT",
+        "VARCHAR"
+    ],
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[go]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    "makefile.configureOnOpen": false,
+    "[properties]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-containers"
+    },
+    "[sql]": {
+        "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+    },
+    "files.autoSave": "afterDelay",
+    "html.autoClosingTags": false,
+    "html.hover.documentation": false,
+    "html.hover.references": false,
+    "[typst]": {
+        "editor.defaultFormatter": "myriad-dreamin.tinymist"
+    },
+    "zig.zls.enabled": "off",
+    "workbench.colorTheme": "Dracula Theme",
+    "[proto]": {
+        "editor.defaultFormatter": "bufbuild.vscode-buf"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.tabWidth": 4,
+    "[fish]": {
+        "editor.defaultFormatter": "bmalehorn.vscode-fish"
+    }
 }
