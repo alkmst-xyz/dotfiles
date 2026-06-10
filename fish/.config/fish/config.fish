@@ -15,7 +15,7 @@ set -g fish_greeting
 # pnpm
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 
 # bun
@@ -29,16 +29,20 @@ pyenv init - | source
 
 # golang
 fish_add_path $HOME/.local/go/bin
+fish_add_path $HOME/go/bin
 
 # asdf
 source ~/.asdf/asdf.fish
 
 # abbreviations
 abbr -a -- vim nvim
-abbr -a -- ll ls -la 
+abbr -a -- ll ls -la
 
 # set nvim as default editor
 set -gx EDITOR nvim
+
+# turso
+source $HOME/.turso/env.fish
 
 # starship
 starship init fish | source
