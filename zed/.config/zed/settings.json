@@ -7,16 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_font_family": "CaskaydiaCove Nerd Font",
+  "icon_theme": "Material Icon Theme",
   "telemetry": {
     "metrics": false,
     "diagnostics": false
   },
   "vim_mode": true,
   "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Ayu Dark"
+    "dark": "Dracula"
   }
 }
