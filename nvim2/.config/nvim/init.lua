@@ -73,6 +73,8 @@ vim.o.scrolloff = 8
 -- unsaved changes to a buffer, e.g. ":q" and ":e".
 vim.o.confirm = true
 
+vim.o.wrap = false
+
 -- =============================================================================
 -- 2. Keymaps
 -- =============================================================================
@@ -612,7 +614,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --  See `:help lsp-config` for information about keys and how to configure
 ---@type table<string, vim.lsp.Config>
 local servers = {
-	-- clangd = {},
+	clangd = {},
 	-- gopls = {},
 	-- pyright = {},
 	-- rust_analyzer = {},
@@ -708,6 +710,8 @@ require("conform").setup({
 		local enabled_filetypes = {
 			lua = true,
 			-- python = true,
+			cpp = true,
+			markdown = true,
 		}
 		if enabled_filetypes[vim.bo[bufnr].filetype] then
 			return { timeout_ms = 500 }
@@ -726,6 +730,7 @@ require("conform").setup({
 		--
 		-- You can use 'stop_after_first' to run the first available formatter from the list
 		-- javascript = { "prettierd", "prettier", stop_after_first = true },
+		markdown = { "prettierd" },
 	},
 })
 
@@ -914,3 +919,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- =============================================================================
+-- 11. Unorganized
+-- =============================================================================
+
+vim.pack.add({ gh("Olical/conjure") })
+require("conjure.main").main()
